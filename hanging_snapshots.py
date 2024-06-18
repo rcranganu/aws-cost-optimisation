@@ -3,7 +3,7 @@ import boto3
 def lambda_handler(event, context):
     ec2 = boto3.client('ec2')
 
-    response = ec2.describe_instances(OwnerIds=['self'])
+    response = ec2.describe_snapshots(OwnerIds=['self'])
 
     for snapshot in response['Snapshots']:
         snapshot_id = snapshot['SnapshotId']
